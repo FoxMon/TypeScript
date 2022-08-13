@@ -144,3 +144,48 @@ dog2.makeSound()
 cat2.makeSound()
 
 ```
+
+## Abstract
+
+추상 클래스를 활용한 디자인 패턴 ( Template Method Pattern )
+
+-   프로그램의 일부분을 서브 클래스로 캡슐화하여 전체 구조를 바꾸지 않고 특정 단계의 기능을 바꾸는 것을 **Design Pattern** 이라고 한다.
+
+-   전체적인 알고리즘은 상위 클래스에서 구현하고 다른 부분은 하위 클래스에서 구현한다.
+
+-   전체 구조는 유사하지만 부분적으로 다른 구문으로 구성된 메소드의 코드 중복을 최소화 할 수 있다.
+
+```js
+abstract class Animal {
+    // 파생 클래스에서 접근 가능
+    // 외부에서 접근 ㄴㄴ
+    protected name: string
+
+    constructor(name: string) {
+        this.name = name
+    }
+
+    // 슈퍼 클래스인 Animal에서는 method 직접 구현 ㄴㄴ.
+    abstract makeSound(): void
+
+    move(): void {
+        console.log("I can move!")
+    }
+}
+
+class Dog extends Animal {
+    constructor(name: string) {
+        super(name)
+    }
+
+    // 슈퍼 클래스의 makeSound 구현해야함
+    makeSound(): void {
+        console.log(this.name + "!!")
+    }
+
+    // 오버라이딩
+    move() {
+        console.log("I can move ~!")
+    }
+}
+```
