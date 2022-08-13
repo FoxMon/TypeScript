@@ -22,7 +22,17 @@ typeof undefined; // 'undefined
 function f(o) {
     console.log("Parameter ".concat(o, "'s type is object. This is function"));
 }
+var obj = {
+    name: "John",
+    age: 21,
+    isCompleted: true
+};
 // array
 var arr = [1, 2, 3];
 // generic
 var arr2 = [1, 2, 3];
+var arr3 = [];
+arr3.push(1);
+arr3.push(true);
+arr3.push(obj);
+console.log(arr3);

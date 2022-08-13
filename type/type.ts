@@ -32,7 +32,18 @@ function f(o: object): void {
     console.log(`Parameter ${o}'s type is object. This is function`)
 }
 
+const obj: { name: string; age: number; isCompleted: boolean } = {
+    name: "John",
+    age: 21,
+    isCompleted: true,
+}
+
 // array
 const arr: number[] = [1, 2, 3]
 // generic
 const arr2: Array<number> = [1, 2, 3]
+const arr3: Array<number | boolean | object> = []
+arr3.push(1)
+arr3.push(true)
+arr3.push(obj)
+console.log(arr3)
